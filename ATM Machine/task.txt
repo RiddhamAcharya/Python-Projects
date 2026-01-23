@@ -1,0 +1,9 @@
+Let’s build a realistic ATM program with:
+
+✅ PIN login (3 attempts only)
+✅ Infinite menu loop
+✅ Deposit
+✅ Withdraw
+✅ Check balance
+✅ Mini statement using file handling
+✅ Data saved in files

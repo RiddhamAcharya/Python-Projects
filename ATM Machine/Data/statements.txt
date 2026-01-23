@@ -1,0 +1,14 @@
+2026-01-23 16:23:59.970186 -> Deposited Rs.100 to the account. Opening Balance=Rs56. Closing Balance=Rs.156
+2026-01-23 16:24:09.652636 -> Deposited Rs.256 to the account. Opening Balance=Rs156. Closing Balance=Rs.412
+2026-01-23 16:24:52.503560 -> Deposited Rs.124 to the account. Opening Balance=Rs412. Closing Balance=Rs.536
+2026-01-23 16:29:36.443334 -> Deposited Rs.521 to the account. Opening Balance=Rs0. Closing Balance=Rs.521
+2026-01-23 16:30:08.077645 -> Deposited Rs.6 to the account. Opening Balance=Rs0. Closing Balance=Rs.6
+2026-01-23 16:32:31.515629 -> Deposited Rs.6 to the account. Opening Balance=Rs0. Closing Balance=Rs.6
+2026-01-23 16:37:59.044118 -> Deposited Rs.120 to the account. Opening Balance=Rs0. Closing Balance=Rs.120
+2026-01-23 16:38:11.953488 -> Deposited Rs.60 to the account. Opening Balance=Rs120. Closing Balance=Rs.180
+2026-01-23 16:38:40.970221 -> WithDrawn Rs.60 to the account. Opening Balance=Rs180. Closing Balance=Rs.120
+2026-01-23 16:39:06.277449 -> Deposited Rs.63 to the account. Opening Balance=Rs120. Closing Balance=Rs.183
+2026-01-23 16:39:15.764060 -> Deposited Rs.7 to the account. Opening Balance=Rs183. Closing Balance=Rs.190
+2026-01-23 16:39:28.251387 -> WithDrawn Rs.90 to the account. Opening Balance=Rs190. Closing Balance=Rs.100
+2026-01-23 16:53:56.099580 -> Pin Code changed from 6314 to 1234
+2026-01-23 16:54:16.753103 -> Deposited Rs.60 to the account. Opening Balance=Rs100. Closing Balance=Rs.160
