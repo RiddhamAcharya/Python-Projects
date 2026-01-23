@@ -1,4 +1,14 @@
 import datetime
+import os
+
+if not os.path.exists("./Data/balance.txt"):
+    open("./Data/balance.txt","w").write("0")
+
+if not os.path.exists("./Data/statements.txt"):
+    open("./Data/statements.txt","w").write("---- MINI STATEMENT ----\n")
+
+if not os.path.exists("./Data/pin.txt"):
+    open("./Data/pin.txt","w").write("1234")
 
 def CheckBalance():
     f = open("./Data/balance.txt","r")
@@ -12,14 +22,17 @@ def DepositAmount():
     x = datetime.datetime.now()
     currentbalance = CheckBalance()
     amount = int(input("Enter the amount you want to deposit: "))
-    balance = currentbalance + amount
-    with open("./Data/balance.txt", "w") as f:
-        f.write(str(balance))
+    if amount <= 0:
+        print("Enter valid amount")
+    else: 
+        balance = currentbalance + amount
+        with open("./Data/balance.txt", "w") as f:
+            f.write(str(balance))
 
-    with open("./Data/statements.txt","a") as fi:
-        fi.write(f"\n{x} -> Deposited Rs.{amount} to the account. Opening Balance=Rs{currentbalance}. Closing Balance=Rs.{balance}")
+        with open("./Data/statements.txt","a") as fi:
+            fi.write(f"\n{x} -> Deposited Rs.{amount} to the account. Opening Balance=Rs{currentbalance}. Closing Balance=Rs.{balance}")
 
-    print(f"You have deposited Rs.{amount} and Your current balance is Rs.{balance}")
+        print(f"You have deposited Rs.{amount} and Your current balance is Rs.{balance}")
 
 
 
@@ -28,26 +41,28 @@ def WithdrawAmount():
     x = datetime.datetime.now()
     currentbalance = CheckBalance()
     amount = int(input("Enter the amount you want to withdraw: "))
-    balance = currentbalance - amount
-    if balance < 0:
-        print("Insuffucient Funds. You can't withdraw Money")
+    if amount <= 0:
+        print("Enter valid amount")
     else:
-        with open("./Data/balance.txt", "w") as f:
-            f.write(str(balance))
+        balance = currentbalance - amount
+        if balance < 0:
+            print("Insuffucient Funds. You can't withdraw Money")
+        else:
+            with open("./Data/balance.txt", "w") as f:
+                f.write(str(balance))
 
-        with open("./Data/statements.txt","a") as fi:
-            fi.write(f"\n{x} -> WithDrawn Rs.{amount} to the account. Opening Balance=Rs{currentbalance}. Closing Balance=Rs.{balance}")
+            with open("./Data/statements.txt","a") as fi:
+                fi.write(f"\n{x} -> WithDrawn Rs.{amount} to the account. Opening Balance=Rs{currentbalance}. Closing Balance=Rs.{balance}")
 
-        print(f"You have withdrawn Rs.{amount} and Your current balance is Rs.{balance}")
+            print(f"You have withdrawn Rs.{amount} and Your current balance is Rs.{balance}")
 
 
 def CheckStatement():
     with open("./Data/statements.txt", "r") as fi:
         for x in fi:
-            print(x)
+            print(x.strip())
 
 def ChangePin():
-    
     with open("./Data/pin.txt","r") as p:
         curpin = int(p.read())
 
@@ -80,25 +95,30 @@ if __name__ == "__main__":
     f = open("./Data/pin.txt")
 
     CorrectPin = int(f.read())
-    i=2
+    attempts = 3
     while True:
-        UserPin = int(input("Enter your pin to continue: "))
+        try:
+            UserPin = int(input("Enter your pin: "))
+        except:
+            print("Please enter numbers only")
+            continue
+
         length = len(str(abs(UserPin)))
         if(length != 4):
-            print(f"The Pin must be of 4 digits {i} attempts left")
-            if(i==0):
+            print(f"The Pin must be of 4 digits {attempts} attempts left")
+            if(attempts==0):
                 print("Attempt Over. Sorry You have been blocked.")
                 break
             else:
-                i -= 1
+                attempts -= 1
 
         elif(UserPin != CorrectPin):
-            print(f"❌ Wrong Pin! {i} attemps left")
-            if(i==0):
+            print(f"❌ Wrong Pin! {attempts} attemps left")
+            if(attempts==0):
                 print("Attempt Over. Sorry You have been blocked.")
                 break
             else:
-                i -= 1
+                attempts -= 1
         else:
             print("\nWelcome User!\n")
             break
