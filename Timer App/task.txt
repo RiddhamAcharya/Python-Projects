@@ -1,0 +1,4 @@
+Build a full-screen, visually appealing timer app using Tkinter with a black background and white, centrally aligned time display. 
+The timer should dynamically show HH:MM:SS if the duration exceeds one hour, otherwise MM:SS. 
+The app includes hidden “Stop” and “Reset” buttons that appear only when the mouse moves. 
+The UI must be smooth, with interactive, rounded buttons, giving a video-player-like experience.
